@@ -4,7 +4,7 @@
 
 @implementation URLHandler
 + (void)registerSelf {
-    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(receiveEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 + (void)receiveEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
     NSString *url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];

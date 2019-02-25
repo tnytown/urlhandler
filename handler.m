@@ -8,7 +8,7 @@
 }
 + (void)receiveEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
     NSString *url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
-    callHandler([url UTF8String]);
+    callHandler((char *) [url UTF8String]);
 }
 @end
 
